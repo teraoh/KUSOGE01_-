@@ -21,7 +21,7 @@ public class coinGenerator: MonoBehaviour {
         {
             this.delta = 0;
             GameObject coin = Instantiate(coinPrefab) as GameObject;
-            int px = Random.Range(-3, 4);
+            int px = Random.Range(-6, 7);
             coin.transform.position = new Vector3(px, 9, 0);
         }
 	}

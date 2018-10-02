@@ -29,12 +29,11 @@ public class player : MonoBehaviour
     void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
-        
 
         if (x != 0)
         {
             rigidbody2D.velocity = new Vector2(x * speed, rigidbody2D.velocity.y);
-
+      
             Vector2 temp = transform.localScale;
             temp.x = x * baseSize;
             transform.localScale = temp;
