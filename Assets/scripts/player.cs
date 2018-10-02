@@ -15,27 +15,38 @@ public class player : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private Animator anim;
 
+    private float baseSize;
+
     // Use this for initialization
     void Start()
     {
         anim = GetComponent<Animator>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        baseSize = transform.localScale.x;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         float x = Input.GetAxisRaw("Horizontal");
+        
 
         if (x != 0)
         {
             rigidbody2D.velocity = new Vector2(x * speed, rigidbody2D.velocity.y);
 
             Vector2 temp = transform.localScale;
-            temp.x = x;
+            temp.x = x * baseSize;
             transform.localScale = temp;
 
             anim.SetBool("Dash", true);
+
+            Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
+            Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
+            Vector2 pos = transform.position;
+
+            pos.x = Mathf.Clamp(pos.x, min.x + 0.5f, max.x - 0.5f );
+            transform.position = pos;
         }
 
         else
