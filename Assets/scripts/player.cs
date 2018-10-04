@@ -16,6 +16,7 @@ public class player : MonoBehaviour
     private Animator anim;
 
     private float baseSize;
+    public int isScroll = 0;
 
     // Use this for initialization
     void Start()
@@ -46,6 +47,20 @@ public class player : MonoBehaviour
 
             pos.x = Mathf.Clamp(pos.x, min.x + 0.5f, max.x - 0.5f );
             transform.position = pos;
+
+            if(pos.x == min.x + 0.5f)
+            {
+                this.isScroll = 1;
+            }
+            else if( pos.x == max.x - 0.5f)
+            {
+                this.isScroll = 2;
+            }
+            else
+            {
+                this.isScroll = 0;
+            }
+
         }
 
         else

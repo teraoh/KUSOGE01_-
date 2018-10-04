@@ -1,13 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class coinController : MonoBehaviour {
 
     private Rigidbody2D rigid2D;
 
-    public float timer = 5.0f;
+    float timer = 5.0f;
 
     // Use this for initialization
     void Start () {
@@ -19,9 +18,18 @@ public class coinController : MonoBehaviour {
 
         
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    void OnCollisionEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "UnityChan")
+        {
+            Debug.Log("hit");
+            Destroy(gameObject);
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         Vector2 min = Camera.main.ViewportToWorldPoint(new Vector2(0, 0));
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector2(1, 1));
@@ -32,4 +40,5 @@ public class coinController : MonoBehaviour {
         }
 
     }
+
 }

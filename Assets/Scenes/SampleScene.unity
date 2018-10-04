@@ -2992,7 +2992,7 @@ GameObject:
   - component: {fileID: 1111473982}
   m_Layer: 0
   m_Name: UNITYCHAN
-  m_TagString: Untagged
+  m_TagString: UnityChan
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3150,6 +3150,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 256
+  isScroll: 0
 --- !u!1001 &1124776198
 Prefab:
   m_ObjectHideFlags: 0
