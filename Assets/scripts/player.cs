@@ -98,4 +98,5 @@ public class player : MonoBehaviour
         anim.SetBool("isJumping", isJumping);
         anim.SetBool("isFalling", isFalling);
     }
+
 }
