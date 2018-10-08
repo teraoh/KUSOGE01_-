@@ -12,7 +12,7 @@ public class player : MonoBehaviour
 
     private bool isGrounded;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rig2D;
     private Animator anim;
 
     private float baseSize;
@@ -22,7 +22,7 @@ public class player : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rig2D = GetComponent<Rigidbody2D>();
         baseSize = transform.localScale.x;
     }
 
@@ -33,7 +33,7 @@ public class player : MonoBehaviour
 
         if (x != 0)
         {
-            rigidbody2D.velocity = new Vector2(x * speed, rigidbody2D.velocity.y);
+            rig2D.velocity = new Vector2(x * speed, rig2D.velocity.y);
       
             Vector2 temp = transform.localScale;
             temp.x = x * baseSize;
@@ -65,7 +65,7 @@ public class player : MonoBehaviour
 
         else
         {
-            rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
+            rig2D.velocity = new Vector2(0, rig2D.velocity.y);
             anim.SetBool("Dash", false);
         }
     }
@@ -86,11 +86,11 @@ public class player : MonoBehaviour
 
                 isGrounded = false;
 
-                rigidbody2D.AddForce(Vector2.up * jumpPower);
+                rig2D.AddForce(Vector2.up * jumpPower);
             }
         }
 
-        float velY = rigidbody2D.velocity.y;
+        float velY = rig2D.velocity.y;
 
         bool isJumping = velY > 0.1f ? true : false;
         bool isFalling = velY < -0.1f ? true : false;
