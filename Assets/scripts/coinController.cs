@@ -55,6 +55,7 @@ public class coinController : MonoBehaviour {
         {
             Destroy(gameObject);
             scoreScript.ChangeScore(CoinScore);
+            GetComponent<AudioSource>().Play();
         }
 
 

@@ -24,7 +24,7 @@ public class danbelController : MonoBehaviour {
         this.player = GameObject.Find("UNITYCHAN");
 
         uiDir = GameObject.Find("UIDirector");
-        scoreScript = uiDir.GetComponent<director>();
+        this.scoreScript = uiDir.GetComponent<director>();
     }
 	
 	// Update is called once per frame
